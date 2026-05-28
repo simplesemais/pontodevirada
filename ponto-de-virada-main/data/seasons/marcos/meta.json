@@ -1,0 +1,46 @@
+{
+  "id": "marcos",
+
+  "title": "Marcos",
+
+  "subtitle": "O Rei em Movimento",
+
+  "description": "Uma jornada sobre Jesus, o Rei que transforma direção em propósito.",
+
+  "img": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1400&auto=format&fit=crop",
+
+  "episodes": [
+  {
+    "id": 1,
+    "title": "Quem está sentado no trono?",
+    "subtitle": "Jesus é Rei.",
+    "img": "assets/images/episodio-1-trono.jpg",
+    "file": "data/seasons/marcos/episodes/1.json",
+    "status": "available"
+  },
+  {
+    "id": 2,
+    "title": "Uma nova correnteza",
+    "subtitle": "Eu quero seguir Jesus.",
+    "img": "assets/images/episodio-2-trono.jpg",
+    "file": "data/seasons/marcos/episodes/2.json",
+    "status": "coming-soon"
+  },
+  {
+    "id": 3,
+    "title": "O toque que muda tudo",
+    "subtitle": "Quem é Jesus?",
+    "img": "assets/images/episodio-3-trono.jpg",
+    "file": "data/seasons/marcos/episodes/3.json",
+    "status": "coming-soon"
+  },
+  {
+    "id": 4,
+    "title": "Quem está te levando para Jesus?",
+    "subtitle": "Amizades que constroem direção.",
+    "img": "assets/images/episodio-4-trono.jpg",
+    "file": "data/seasons/marcos/episodes/4.json",
+    "status": "coming-soon"
+  }
+]
+}
