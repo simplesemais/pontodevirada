@@ -1,173 +1,193 @@
 {
   "id": 1,
-  "title": "Quem Está Sentado no Trono?",
+  "title": "Quem está sentado no trono?",
   "subtitle": "Jesus é Rei.",
-  "summary": "Jesus não veio apenas como salvador, ele veio como Rei. E essa realeza exige uma resposta concreta: quem ocupa o trono do seu coração?",
-  "challenge": "Durante essa semana, pense em uma pequena escolha que precisa corrigir. Como você vai reposicionar o trono do seu coração para Jesus?",
-   "img": "assets/images/episodio-1-trono.jpg",
+  "summary": "Jesus não veio apenas como salvador; Ele veio como Rei. E essa realeza exige uma resposta concreta: quem ocupa o centro do seu coração?",
+  "img": "assets/images/episodio-1-trono.jpg",
+  "challenge": "Antes de uma decisão importante essa semana, pergunte: “Quem está sentado no trono agora?”",
   "scriptureHighlight": {
     "reference": "Marcos 1:1–15",
     "highlightVerse": "Marcos 1:15",
     "verse": "O Reino de Deus está próximo. Arrependam-se e creiam nas boas notícias.",
     "fullText": "1 Início do evangelho de Jesus Cristo, o Filho de Deus.\n\n2 Conforme está escrito no profeta Isaías: 'Eis que envio o meu mensageiro à tua frente...'\n\n3 Voz do que clama no deserto: 'Preparem o caminho do Senhor.'\n\n4 João apareceu no deserto pregando batismo de arrependimento.\n\n5 Toda a região da Judeia ia até ele.\n\n6 João vestia roupas de pelos de camelo.\n\n7 E pregava: 'Depois de mim vem alguém mais poderoso do que eu.'\n\n8 'Eu os batizei com água, mas ele os batizará com o Espírito Santo.'\n\n9 Naqueles dias Jesus veio de Nazaré da Galileia.\n\n10 Ao sair da água, viu os céus se abrindo.\n\n11 E uma voz dos céus disse: 'Tu és meu Filho amado.'\n\n12 O Espírito o levou ao deserto.\n\n13 E ali foi tentado por Satanás.\n\n14 Depois que João foi preso, Jesus foi para a Galileia pregando o evangelho.\n\n15 'O tempo está cumprido. O Reino de Deus está próximo. Arrependam-se e creiam nas boas notícias.'"
   },
-  "blocks": [
+  "prepare": [
     {
-      "type": "opening",
-      "label": "Ponto de partida",
-      "title": "Pequenos desvios mudam destinos",
-      "subtitle": "Um grau parece pouco, mas pode levar para outro lugar.",
+      "title": "Entenda a ideia principal",
+      "type": "manifesto",
       "content": [
-        "Se um avião decola de Los Angeles em direção a Nova York, o piloto precisa definir uma trajetória específica para pousar onde pretende.",
-        "Se ele estiver desviado por apenas um grau, não vai acabar em Nova York — vai acabar em Washington, D.C.",
-        "É fácil achar que pequenas decisões e pequenos hábitos não mudam muita coisa.",
-        "Mas pequenas escolhas se amplificam com o tempo — para o bem ou para o mal."
-      ]
-    },
-    {
-      "type": "context",
-      "label": "Cenário",
-      "title": "Marcos anuncia um Rei",
-      "subtitle": "As primeiras palavras do Evangelho já carregam uma declaração de autoridade.",
-      "content": [
-        "Messias é uma palavra hebraica que significa ungido.",
-        "No Antigo Testamento, o ungido era o Rei de Israel.",
-        "No Novo Testamento, a mesma ideia aparece em grego como Cristo.",
-        "Quando Marcos apresenta Jesus como Messias, está dizendo: este é o Rei do universo."
-      ]
-    },
-    {
-      "type": "context",
-      "label": "Cenário",
-      "title": "Filho de Deus também é título de Rei",
-      "subtitle": "Essa expressão não era neutra no mundo de Marcos.",
-      "content": [
-        "Quando ouvimos Filho de Deus, pensamos na divindade de Jesus.",
-        "Mas em Israel antigo, esse título também era um título real.",
-        "Na Roma antiga, chamar outra pessoa de Filho de Deus era uma afronta direta ao imperador.",
-        "Marcos está apresentando Jesus como alguém acima de qualquer trono humano."
-      ]
-    },
-    {
-      "type": "context",
-      "label": "Cenário",
-      "title": "Evangelho era anúncio de governo",
-      "subtitle": "Antes de ser uma palavra religiosa, era uma notícia sobre reinos.",
-      "content": [
-        "Hoje evangelho soa como uma palavra religiosa.",
-        "No mundo antigo, porém, era o anúncio de que um novo rei havia assumido o trono.",
-        "Quando Marcos escreve sobre o evangelho de Jesus, ele está anunciando que um novo Rei chegou.",
-        "A boa notícia é que esse Rei não governa para oprimir, mas para restaurar."
-      ]
-    },
-    {
-      "type": "reflection",
-      "label": "Entendendo o Reino",
-      "title": "Jesus não é apenas inspiração",
-      "subtitle": "Ele não veio ocupar um espaço decorativo na vida.",
-      "content": [
-        "Jesus não veio apenas para ser uma referência bonita, uma inspiração religiosa ou uma ideia confortável.",
+        "Jesus não veio apenas como salvador.",
         "Ele veio como Rei.",
-        "Isso significa que a mensagem de Marcos não pede apenas admiração.",
-        "Ela pede resposta, direção e entrega."
+        "E isso muda tudo.",
+        "Porque a mensagem de Jesus não pede apenas admiração ou crença.",
+        "Ela pede entrega.",
+        "O centro da vida nunca fica vazio.",
+        "Sempre existe alguma coisa governando pensamentos, escolhas, emoções e prioridades.",
+        "A pergunta central deste encontro é:",
+        "Quem está sentado no trono do coração?"
       ]
     },
     {
-      "type": "reflection",
-      "label": "Entendendo o Reino",
-      "title": "Todo coração tem um trono",
-      "subtitle": "E esse trono não fica vazio.",
-      "content": [
-        "Tronos são feitos para um único assento.",
-        "Existe um trono no coração de cada pessoa.",
-        "Esse lugar é ocupado por aquilo que governa decisões, desejos, medos e prioridades.",
-        "A pergunta não é se existe um rei. A pergunta é quem está sentado ali."
-      ]
+      "title": "Leia o texto bíblico",
+      "type": "scripture",
+      "content": []
     },
     {
-      "type": "reflection",
-      "label": "Entendendo o Reino",
-      "title": "Arrependimento é recalcular a rota",
-      "subtitle": "Não é vergonha. É mudança de direção.",
+      "title": "Entenda a mensagem",
+      "type": "teaching",
       "content": [
-        "Quando Jesus anuncia que o Reino de Deus chegou, ele chama as pessoas ao arrependimento e à fé.",
+        "Jesus começa Sua mensagem falando sobre Reino.",
+        "Isso é importante porque todo reino tem um rei.",
+        "Todo reino tem algo no controle.",
+        "A pergunta não é se alguma coisa governa nossa vida.",
+        "A pergunta é:",
+        "quem está governando?",
+        "Marcos apresenta Jesus como Messias, Filho de Deus e Rei.",
+        "No mundo antigo, essas palavras falavam sobre autoridade, governo e poder.",
+        "Marcos está mostrando que Jesus não veio apenas para inspirar pessoas.",
+        "Ele veio para ocupar o centro da vida.",
+        "Por isso Jesus chama as pessoas ao arrependimento.",
         "Arrependimento não é apenas sentir culpa.",
-        "É perceber que a rota atual está levando para longe de Deus.",
-        "É permitir que Jesus reorganize o centro da vida."
+        "É mudança de direção.",
+        "É perceber que outras coisas começaram a ocupar o lugar que pertence a Deus.",
+        "E aquilo que ocupa o centro da vida também começa a definir a direção dela."
       ]
     },
     {
-      "type": "leader",
-      "label": "Guia do líder",
-      "title": "Como conduzir este encontro",
-      "subtitle": "Use este roteiro para transformar conteúdo em conversa real.",
-      "steps": [
-        {
-          "title": "Abra com uma oração",
-          "text": "Peça a Deus que abra corações para ouvir o que ele quer falar hoje."
-        },
-        {
-          "title": "Conte a história do avião",
-          "text": "Use o ponto de partida para mostrar como pequenas escolhas podem mudar uma trajetória inteira."
-        },
-        {
-          "title": "Leia Marcos 1:1–15",
-          "text": "Leia em voz alta ou peça para alguém do grupo ler. Mostre que o texto inteiro prepara o versículo-chave."
-        },
-        {
-          "title": "Explique o cenário",
-          "text": "Mostre que Messias, Filho de Deus e evangelho eram palavras fortes, ligadas a realeza e governo."
-        },
-        {
-          "title": "Conduza para o coração",
-          "text": "Ajude o grupo a sair da informação e chegar à pergunta central: quem ocupa o trono da vida?"
-        }
-      ],
+      "title": "Reflita antes da célula",
+      "type": "reflection",
       "content": [
-        "Não transforme o encontro em palestra.",
-        "Use os blocos como caminho para conversa.",
-        "Dê tempo para respostas sinceras.",
-        "O objetivo é ajudar cada pessoa a perceber que Jesus não quer apenas ser conhecido, mas governar o centro da vida."
+        "Pense em como isso aparece na vida dos jovens hoje.",
+        "Muitas vezes não é algo obviamente errado que ocupa o trono.",
+        "Pode ser:",
+        "aprovação;",
+        "ansiedade;",
+        "medo;",
+        "comparação;",
+        "orgulho;",
+        "controle;",
+        "necessidade de aceitação.",
+        "Tudo aquilo que senta no trono promete segurança…",
+        "mas nunca consegue sustentar o coração.",
+        "Pense também:",
+        "Existe alguma área da sua própria vida em que está difícil entregar o controle para Deus?"
       ]
     },
     {
-      "type": "discussion",
-      "label": "Discussão",
-      "title": "Perguntas para abrir conversa",
-      "subtitle": "Use uma pergunta por vez. Dê espaço para respostas reais.",
-      "questions": [
-        "O que mais tenta ocupar o trono do coração dos jovens hoje: aprovação, ansiedade, comparação, controle ou outra coisa?",
-        "Você já percebeu alguma pequena escolha que parecia simples, mas começou a mudar sua direção espiritual?",
-        "Existe alguma área da sua vida em que você sente que está tentando controlar tudo sozinho? O que te impede de entregar esse lugar para Jesus hoje?"
-      ],
+      "title": "Pense em uma história para abrir a conversa",
+      "type": "story",
       "content": [
-        "As perguntas são o centro da condução da célula.",
-        "Não tenha pressa para passar por todas.",
-        "Se uma pergunta gerar uma conversa sincera, permaneça nela."
+        "Antes da célula, pense em uma situação real que possa ajudar o grupo a se conectar com o tema.",
+        "Pode ser um momento em que:",
+        "você tentou controlar tudo;",
+        "tomou uma decisão apenas para agradar alguém;",
+        "percebeu ansiedade dominando suas escolhas;",
+        "ou viu pequenas decisões mudarem sua direção aos poucos.",
+        "Não precisa ser uma história perfeita.",
+        "Só precisa ser verdadeira.",
+        "A ideia é começar a conversa de forma humana e natural."
       ]
     },
     {
+      "title": "Desafio da semana",
       "type": "challenge",
-      "label": "Desafio da semana",
-      "title": "Reposicione o trono",
-      "subtitle": "Uma pequena decisão pode revelar quem está governando.",
       "content": [
-        "Durante essa semana, pense em uma pequena escolha que precisa corrigir.",
-        "Antes de uma decisão importante, pause e pergunte: isso está me levando para mais perto de Jesus ou para mais longe?",
-        "Separe cinco minutos antes de dormir e responda: o que governou meu coração hoje?"
+        "Antes de uma decisão importante essa semana, pergunte:",
+        "“Quem está sentado no trono agora?”"
       ]
     },
     {
-      "type": "closing",
-      "label": "Encerramento",
-      "title": "Ore pelo centro do coração",
-      "subtitle": "Feche conduzindo o grupo à entrega.",
+      "title": "Entenda melhor",
+      "type": "deeper",
+      "optional": true,
       "content": [
-        "Abra espaço para pedidos de oração.",
-        "Ore por cada pessoa pelo nome.",
-        "Peça para Jesus ocupar novamente o centro do coração.",
-        "Encerre lembrando o grupo: todo mundo está seguindo alguma direção. A pergunta é quem está definindo essa direção."
+        "Marcos começa seu evangelho apresentando Jesus como o Filho de Deus e mostrando que algo novo estava começando. João Batista prepara o caminho e chama as pessoas ao arrependimento, enquanto Jesus é batizado e confirmado pelo Pai antes de iniciar Seu ministério.",
+        "Quando Jesus anuncia que o Reino de Deus está próximo, Ele está mostrando mais do que uma religião ou um conjunto de regras. Ele está anunciando que Deus quer governar novamente o coração das pessoas.",
+        "Por isso, Jesus chama as pessoas ao arrependimento: mudar de direção e colocar Deus novamente no centro da vida."
       ]
+    }
+  ],
+  "conduct": [
+    {
+      "title": "Comece em oração",
+      "type": "prayer",
+      "content": []
+    },
+    {
+      "title": "Abra a conversa com uma história",
+      "type": "story",
+      "content": [
+        "Comece contando a situação ou experiência que você pensou durante a preparação.",
+        "Depois da história, faça uma pergunta simples para iniciar a conversa:",
+        "O que mais influencia os jovens da nossa idade hoje?",
+        "Deixe o grupo responder livremente.",
+        "Não tenha pressa para avançar rápido.",
+        "O objetivo é gerar identificação e participação."
+      ]
+    },
+    {
+      "title": "Leia o texto com o grupo",
+      "type": "scripture",
+      "content": [
+        "Leia Marcos 1:1–15.",
+        "Se achar melhor, peça para diferentes pessoas lerem partes do texto.",
+        "Depois da leitura, destaque:",
+        "“O Reino de Deus está próximo.”",
+        "Explique brevemente que Jesus começa Sua mensagem falando sobre Reino porque todo reino possui algo governando.",
+        "Então conduza o grupo para a pergunta central:",
+        "Quem está sentado no trono da nossa vida?"
+      ]
+    },
+    {
+      "title": "Conduza a reflexão principal",
+      "type": "reflection",
+      "content": [
+        "Ajude o grupo a perceber que pequenas escolhas moldam direções.",
+        "Uma resposta.",
+        "Um hábito.",
+        "Uma conversa.",
+        "Uma decisão feita apenas para agradar alguém.",
+        "Tudo isso parece pequeno no começo.",
+        "Mas, aos poucos, alguma coisa começa a ocupar o centro da vida.",
+        "Faça a pergunta:",
+        "Se alguém observasse sua rotina essa semana, o que pareceria governar sua vida?",
+        "Dê espaço para respostas reais.",
+        "Não tente preencher todos os silêncios."
+      ]
+    },
+    {
+      "title": "Faça a dinâmica",
+      "type": "dynamic",
+      "content": [
+        "Peça para o grupo escolher um lado:",
+        "O que mais controla você hoje?",
+        "o que os outros pensam",
+        "OU",
+        "ansiedade",
+        "Depois peça para algumas pessoas explicarem suas escolhas.",
+        "Use esse momento para aprofundar a conversa, não apenas para passar rapidamente pela dinâmica."
+      ]
+    },
+    {
+      "title": "Momento silencioso",
+      "type": "silence",
+      "content": [
+        "Pergunte:",
+        "Existe alguma área da sua vida que você ainda não quer entregar para Deus?",
+        "Depois disso, deixe alguns segundos em silêncio antes de continuar.",
+        "Não tenha medo do silêncio.",
+        "Ele ajuda a reflexão a sair apenas da fala e chegar ao coração."
+      ]
+    },
+    {
+      "title": "Pedidos de oração",
+      "type": "prayer",
+      "content": []
+    },
+    {
+      "title": "Oração final",
+      "type": "prayer",
+      "content": []
     }
   ]
 }

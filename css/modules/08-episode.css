@@ -2409,3 +2409,701 @@ body.episode-reading-active #episodeContent {
     letter-spacing: .22em !important;
   }
 }
+
+/* Correção v7 — ajustes solicitados: fonte menor, cards com respiro, disclosure funcional, imagens no carrossel e verde no conduza */
+:root {
+  --conduct-green: #7ea86a;
+  --conduct-green-soft: #b9d992;
+}
+
+.episode-hub-card.conduct {
+  border-color: rgba(126, 168, 106, .32) !important;
+  background:
+    radial-gradient(circle at top right, rgba(126, 168, 106, .18), transparent 42%),
+    linear-gradient(135deg, rgba(255, 255, 255, .064), rgba(255, 255, 255, .02)) !important;
+}
+
+.episode-hub-card.conduct .episode-hub-icon {
+  color: #10210f !important;
+  background: linear-gradient(135deg, var(--conduct-green), var(--conduct-green-soft)) !important;
+}
+
+.episode-reference-layout {
+  width: min(100%, 760px) !important;
+  padding: 22px 12px 128px !important;
+}
+
+.reading-reference-timeline {
+  padding-left: 34px !important;
+}
+
+.reading-reference-progress {
+  position: fixed !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  z-index: 9999 !important;
+  display: grid !important;
+  grid-template-columns: auto minmax(0, 1fr) auto !important;
+  align-items: center !important;
+  gap: 9px !important;
+  padding: 9px 14px calc(12px + env(safe-area-inset-bottom)) !important;
+  color: rgba(255, 255, 255, .72) !important;
+  background: rgba(4, 6, 5, .96) !important;
+  border-top: 1px solid rgba(215, 178, 109, .14) !important;
+  box-shadow: 0 -16px 42px rgba(0,0,0,.42) !important;
+  backdrop-filter: blur(18px) !important;
+  -webkit-backdrop-filter: blur(18px) !important;
+}
+
+.reading-reference-progress.is-conduct {
+  border-top-color: rgba(126, 168, 106, .22) !important;
+}
+
+.reading-reference-progress span {
+  font-size: 10px !important;
+  letter-spacing: .06em !important;
+  font-weight: 640 !important;
+}
+
+.reading-progress-track {
+  height: 4px !important;
+  background: rgba(255,255,255,.14) !important;
+}
+
+.reading-progress-fill {
+  background: linear-gradient(90deg, #c89a3a, #f4d88e) !important;
+}
+
+.reading-reference-progress.is-conduct .reading-progress-fill {
+  background: linear-gradient(90deg, var(--conduct-green), var(--conduct-green-soft)) !important;
+}
+
+.reference-step {
+  margin-bottom: 34px !important;
+}
+
+.reference-dot {
+  width: 10px !important;
+  height: 10px !important;
+  left: -28px !important;
+}
+
+.reference-step-conduct .reference-dot,
+.reference-step-tools .reference-dot {
+  background: var(--conduct-green) !important;
+  box-shadow:
+    0 0 0 7px rgba(126, 168, 106, .10),
+    0 0 16px rgba(126, 168, 106, .46) !important;
+}
+
+.reference-step-label {
+  font-size: 9.5px !important;
+  letter-spacing: .14em !important;
+  font-weight: 760 !important;
+}
+
+.reference-step-conduct .reference-step-label,
+.reference-step-tools .reference-step-label {
+  color: rgba(126, 168, 106, .96) !important;
+}
+
+.reference-step h2 {
+  font-size: clamp(19px, 5vw, 26px) !important;
+  line-height: 1.08 !important;
+  font-weight: 630 !important;
+  letter-spacing: -.025em !important;
+  margin-bottom: 11px !important;
+}
+
+.reference-step-scripture blockquote {
+  font-size: clamp(22px, 6.1vw, 31px) !important;
+  line-height: 1.10 !important;
+  max-width: 17ch !important;
+  font-weight: 610 !important;
+}
+
+.reference-editorial-text,
+.reference-editorial-text p,
+.reference-details p,
+.reference-script-block p,
+.reference-tool-card p,
+.conduct-showcase-card p,
+.conduct-showcase-card small,
+.reference-sendoff,
+.reference-disclosure-content p {
+  font-size: 13.6px !important;
+  line-height: 1.58 !important;
+  font-weight: 390 !important;
+}
+
+.reference-editorial-text {
+  max-width: 43ch !important;
+}
+
+.reference-editorial-text strong {
+  font-weight: 610 !important;
+  color: #d9b56f !important;
+}
+
+.reference-step-body:not(.no-card),
+.visual-trigger-panel,
+.conduct-showcase-card,
+.reference-tool-card,
+.reference-challenge-card {
+  border-radius: 22px !important;
+}
+
+.visual-trigger-panel,
+.conduct-showcase-card,
+.reference-tool-card,
+.reference-challenge-card {
+  padding: 22px !important;
+}
+
+.reference-step-body:not(.no-card) {
+  padding: 22px !important;
+}
+
+.visual-trigger-panel {
+  gap: 18px !important;
+  overflow: hidden !important;
+}
+
+.visual-trigger-question p {
+  padding: 16px 15px !important;
+  font-size: clamp(18px, 4.8vw, 24px) !important;
+  line-height: 1.12 !important;
+}
+
+.visual-trigger-tags span,
+.scene-chip {
+  padding: 7px 10px !important;
+  font-size: 10.8px !important;
+  font-weight: 420 !important;
+}
+
+.visual-card-row {
+  display: grid !important;
+  grid-auto-flow: column !important;
+  grid-auto-columns: minmax(138px, 46%) !important;
+  gap: 12px !important;
+  overflow-x: auto !important;
+  padding: 2px 3px 12px !important;
+  scroll-snap-type: x mandatory !important;
+}
+
+.visual-card {
+  min-height: 178px !important;
+  position: relative !important;
+  overflow: hidden !important;
+  border-radius: 18px !important;
+  padding: 14px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-end !important;
+  gap: 6px !important;
+  background: rgba(255,255,255,.05) !important;
+  scroll-snap-align: start !important;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.10), 0 14px 32px rgba(0,0,0,.22) !important;
+}
+
+.visual-card img {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  z-index: 0 !important;
+  filter: saturate(.90) contrast(1.03) brightness(.82) !important;
+}
+
+.visual-card-shade {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 1 !important;
+  background: linear-gradient(180deg, rgba(0,0,0,.10), rgba(0,0,0,.78) 72%, rgba(0,0,0,.92)) !important;
+}
+
+.visual-card span,
+.visual-card small,
+.visual-card strong {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+.visual-card span {
+  position: absolute !important;
+  top: 10px !important;
+  left: 10px !important;
+  width: auto !important;
+  min-width: 26px !important;
+  height: 23px !important;
+  font-size: 10px !important;
+  background: #d9b56f !important;
+}
+
+.visual-card small {
+  width: fit-content !important;
+  font-size: 9.5px !important;
+  letter-spacing: .08em !important;
+  background: rgba(0,0,0,.32) !important;
+}
+
+.visual-card strong {
+  font-size: 16.2px !important;
+  line-height: 1.10 !important;
+  font-weight: 620 !important;
+}
+
+.conduct-showcase-grid,
+.reference-tools-grid {
+  gap: 14px !important;
+}
+
+.conduct-showcase-card {
+  min-height: 0 !important;
+  border-color: rgba(126, 168, 106, .20) !important;
+  background:
+    radial-gradient(circle at 88% 0%, rgba(126, 168, 106, .15), transparent 42%),
+    linear-gradient(145deg, rgba(255,255,255,.048), rgba(255,255,255,.018)) !important;
+}
+
+.conduct-showcase-card h3,
+.reference-tool-card h3 {
+  font-size: clamp(13px, 3.45vw, 16px) !important;
+  line-height: 1.20 !important;
+  font-weight: 680 !important;
+  text-transform: none !important;
+  margin-bottom: 9px !important;
+}
+
+.dynamic-card {
+  background:
+    radial-gradient(circle at 88% 0%, rgba(126, 168, 106, .23), transparent 42%),
+    linear-gradient(145deg, rgba(38, 98, 66, .34), rgba(255,255,255,.022)) !important;
+}
+
+.conduct-showcase-card strong {
+  color: var(--conduct-green-soft) !important;
+  font-weight: 620 !important;
+}
+
+.reference-dynamic-choice div,
+.reference-dynamic-steps b,
+.dynamic-choice-card span,
+.inline-note-box button,
+.reference-tools-grid .leader-tool-primary {
+  background: linear-gradient(135deg, var(--conduct-green), var(--conduct-green-soft)) !important;
+  color: #10210f !important;
+}
+
+.green-soft,
+.reference-challenge-card {
+  border-color: rgba(126, 168, 106, .25) !important;
+  background:
+    radial-gradient(circle at 92% 0%, rgba(126, 168, 106, .20), transparent 42%),
+    linear-gradient(145deg, rgba(126, 168, 106, .10), rgba(255,255,255,.022)) !important;
+}
+
+.reference-challenge-card {
+  margin-top: 16px !important;
+  border: 1px solid rgba(126, 168, 106, .25) !important;
+  box-shadow: 0 20px 48px rgba(0,0,0,.22) !important;
+}
+
+.reference-challenge-card span {
+  display: block !important;
+  margin-bottom: 8px !important;
+  color: var(--conduct-green-soft) !important;
+  font-size: 9.5px !important;
+  letter-spacing: .16em !important;
+  text-transform: uppercase !important;
+  font-weight: 760 !important;
+}
+
+.reference-challenge-card p {
+  margin: 0 !important;
+  color: #fff !important;
+  font-family: 'Playfair Display', serif !important;
+  font-size: clamp(18px, 4.8vw, 25px) !important;
+  line-height: 1.18 !important;
+  font-weight: 600 !important;
+}
+
+.reference-disclosure {
+  margin-top: 16px !important;
+  border: 1px solid rgba(215, 178, 109, .15) !important;
+  border-radius: 17px !important;
+  overflow: hidden !important;
+  background: rgba(255,255,255,.024) !important;
+}
+
+.reference-step-conduct .reference-disclosure {
+  border-color: rgba(126, 168, 106, .18) !important;
+}
+
+.reference-disclosure-button {
+  width: 100% !important;
+  min-height: 42px !important;
+  padding: 0 15px !important;
+  border: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  color: #efd28a !important;
+  background: transparent !important;
+  font-size: 10.5px !important;
+  letter-spacing: .10em !important;
+  text-transform: uppercase !important;
+  font-weight: 740 !important;
+  cursor: pointer !important;
+}
+
+.reference-step-conduct .reference-disclosure-button {
+  color: var(--conduct-green-soft) !important;
+}
+
+.reference-disclosure-button::after {
+  content: '+' !important;
+  font-size: 18px !important;
+  line-height: 1 !important;
+}
+
+.reference-disclosure.open .reference-disclosure-button::after {
+  content: '−' !important;
+}
+
+.reference-disclosure-content {
+  padding: 0 18px 18px !important;
+}
+
+.reference-details {
+  display: none !important;
+}
+
+.inline-note-box {
+  padding: 16px !important;
+  margin-top: 16px !important;
+}
+
+@media (max-width: 720px) {
+  .visual-trigger-panel,
+  .conduct-showcase-grid,
+  .reference-tools-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .visual-card-row {
+    grid-auto-columns: 74% !important;
+  }
+}
+
+@media (max-width: 430px) {
+  .episode-reference-layout {
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+  }
+
+  .reading-reference-timeline {
+    padding-left: 31px !important;
+  }
+
+  .reference-step h2 {
+    font-size: 20px !important;
+  }
+
+  .reference-step-scripture blockquote {
+    font-size: 23px !important;
+  }
+
+  .reference-editorial-text,
+  .reference-editorial-text p,
+  .reference-details p,
+  .reference-script-block p,
+  .reference-tool-card p,
+  .conduct-showcase-card p,
+  .conduct-showcase-card small,
+  .reference-sendoff,
+  .reference-disclosure-content p {
+    font-size: 13.2px !important;
+    line-height: 1.56 !important;
+  }
+
+  .visual-trigger-panel,
+  .conduct-showcase-card,
+  .reference-tool-card,
+  .reference-challenge-card,
+  .reference-step-body:not(.no-card) {
+    padding: 19px !important;
+  }
+
+  .visual-card-row {
+    grid-auto-columns: 82% !important;
+  }
+
+  .reading-reference-progress span {
+    font-size: 9.4px !important;
+  }
+}
+
+/* AJUSTE DEFINITIVO — preserva textos e estrutura, sem desmontar o visual */
+.exact-episode-layout {
+  max-width: 720px;
+  padding-top: 34px;
+  padding-bottom: 110px;
+}
+
+.exact-reading-intro {
+  padding: 0 22px 22px 58px;
+  margin-bottom: 10px;
+}
+
+.exact-reading-intro span,
+.exact-reading-intro small {
+  display: block;
+  color: rgba(244, 216, 142, .76);
+  font-size: 11px;
+  line-height: 1.35;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.exact-reading-intro small {
+  margin-top: 4px;
+  color: rgba(255,255,255,.58);
+  letter-spacing: .05em;
+  text-transform: none;
+  font-weight: 500;
+}
+
+.exact-reading-intro h1 {
+  margin: 18px 0 0;
+  color: #fff;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(31px, 8vw, 48px);
+  line-height: .98;
+  letter-spacing: -.035em;
+}
+
+.exact-timeline {
+  padding-left: 44px;
+  padding-right: 18px;
+}
+
+.exact-step {
+  margin-bottom: 28px;
+}
+
+.exact-step .reference-dot {
+  top: 12px;
+}
+
+.exact-step-card {
+  padding: 23px 22px 25px !important;
+  border-radius: 26px !important;
+}
+
+.exact-step .reference-step-label {
+  min-height: 18px;
+  margin-bottom: 8px;
+  color: rgba(244,216,142,.75);
+  font-size: 10px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.exact-optional {
+  color: rgba(244,216,142,.72);
+}
+
+.exact-step h2 {
+  margin: 0 0 17px !important;
+  color: #fff;
+  font-family: Inter, sans-serif !important;
+  font-size: clamp(22px, 5.6vw, 31px) !important;
+  line-height: 1.12 !important;
+  letter-spacing: -.035em;
+  font-weight: 780 !important;
+}
+
+.exact-step h2 span {
+  color: rgba(244,216,142,.85);
+  font-family: Inter, sans-serif;
+  font-size: .8em;
+}
+
+.exact-text-flow p,
+.exact-step p,
+.exact-dynamic-after p {
+  color: rgba(255,255,255,.76) !important;
+  font-size: clamp(14.2px, 3.8vw, 15.6px) !important;
+  line-height: 1.62 !important;
+  font-weight: 410 !important;
+  margin: 0 0 11px !important;
+}
+
+.exact-text-flow .scene-question,
+.exact-step .scene-question {
+  margin: 16px 0 !important;
+  padding: 18px 18px !important;
+  border-radius: 22px;
+  font-family: 'Playfair Display', serif !important;
+  font-size: clamp(23px, 6vw, 33px) !important;
+  line-height: 1.12 !important;
+  color: #fff !important;
+  background: rgba(244,216,142,.08);
+  border: 1px solid rgba(244,216,142,.20);
+}
+
+.exact-text-flow .scene-chip,
+.exact-step .scene-chip {
+  font-size: 13px !important;
+  font-weight: 560 !important;
+  margin: 4px 6px 6px 0 !important;
+  padding: 7px 11px !important;
+}
+
+.exact-text-flow .scene-highlight-line,
+.exact-step .scene-highlight-line {
+  font-size: 14px !important;
+  line-height: 1.1 !important;
+  font-weight: 700 !important;
+}
+
+.exact-verse-card {
+  margin: 16px 0;
+  padding: 21px 20px;
+  border-radius: 24px;
+  border: 1px solid rgba(215,178,109,.24);
+  background: radial-gradient(circle at top right, rgba(215,178,109,.16), transparent 38%), rgba(255,255,255,.045);
+}
+
+.exact-verse-card span {
+  display: block;
+  margin-bottom: 12px;
+  color: #f4d88e;
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.exact-verse-card blockquote {
+  margin: 0 0 12px;
+  color: #fff;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(24px, 6vw, 34px);
+  line-height: 1.13;
+}
+
+.exact-verse-card small {
+  color: rgba(244,216,142,.8);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.exact-scripture-button {
+  margin-top: 8px;
+  padding: 16px 18px !important;
+}
+
+.exact-visual-row {
+  margin-top: 19px;
+  padding-bottom: 14px;
+  grid-auto-columns: 76%;
+}
+
+.exact-visual-card {
+  min-height: 190px;
+}
+
+.exact-dynamic-choice {
+  margin: 18px 0;
+}
+
+.exact-dynamic-choice div {
+  min-height: 82px;
+}
+
+.exact-challenge-box {
+  margin-top: 8px;
+  padding: 19px 18px;
+  border-radius: 24px;
+  background: linear-gradient(145deg, rgba(244,216,142,.17), rgba(42,88,62,.18));
+  border: 1px solid rgba(244,216,142,.28);
+}
+
+.exact-challenge-box p:last-child {
+  font-family: 'Playfair Display', serif !important;
+  font-size: clamp(23px, 6vw, 33px) !important;
+  line-height: 1.12 !important;
+  color: #fff !important;
+}
+
+.exact-bottom-progress {
+  position: fixed !important;
+  left: 14px !important;
+  right: 14px !important;
+  bottom: 12px !important;
+  z-index: 80;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 10px;
+  align-items: center;
+  min-height: 44px;
+  padding: 8px 12px !important;
+  border-radius: 999px;
+  background: rgba(6,8,7,.80) !important;
+  border: 1px solid rgba(215,178,109,.16) !important;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.exact-bottom-progress span {
+  color: rgba(255,255,255,.70);
+  font-size: 11px;
+  font-weight: 650;
+  white-space: nowrap;
+}
+
+.exact-bottom-progress .reading-progress-track {
+  height: 5px;
+  background: rgba(255,255,255,.12);
+}
+
+.exact-bottom-progress .reading-progress-fill {
+  background: linear-gradient(90deg, #c89a3a, #f4d88e);
+}
+
+.exact-bottom-progress.is-conduct .reading-progress-fill,
+.exact-bottom-progress.conduct .reading-progress-fill {
+  background: linear-gradient(90deg, #2f6b4d, #86c99d);
+}
+
+.exact-step.conduct .reference-dot,
+.episode-hub-card.conduct .episode-hub-icon {
+  background: linear-gradient(135deg, #2f6b4d, #86c99d) !important;
+  color: #07110d !important;
+}
+
+.exact-step.conduct .reference-step-body:not(.no-card),
+.exact-step.conduct .exact-step-card {
+  border-color: rgba(134,201,157,.22) !important;
+  background:
+    radial-gradient(circle at top right, rgba(47,107,77,.32), transparent 40%),
+    linear-gradient(145deg, rgba(255,255,255,.065), rgba(255,255,255,.022)) !important;
+}
+
+@media (max-width: 560px) {
+  .exact-episode-layout { padding-top: 24px; }
+  .exact-reading-intro { padding-left: 54px; padding-right: 18px; }
+  .exact-timeline { padding-left: 42px; padding-right: 15px; }
+  .exact-step-card { padding: 21px 20px 23px !important; }
+  .exact-step h2 { font-size: clamp(21px, 5.8vw, 28px) !important; }
+  .exact-text-flow p,
+  .exact-step p { font-size: 14.2px !important; }
+  .exact-visual-row { grid-auto-columns: 80%; }
+}

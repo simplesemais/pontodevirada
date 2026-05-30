@@ -221,26 +221,32 @@ function openEpisodeSection(sectionType = 'prepare') {
   const container = document.getElementById('episodeContent');
   if (!container) return;
 
+  const items = sectionType === 'conduct' ? (episode.conduct || []) : (episode.prepare || []);
+  const sectionTitle = sectionType === 'conduct' ? 'CONDUZA A CÉLULA' : 'PREPARE-SE';
+  const seasonLabel = 'Temporada 1 - Marcos';
+
   document.body.classList.add('episode-active', 'episode-reading-active');
 
   container.innerHTML = `
-    <section class="episode-reading episode-reference-layout" data-reading-type="reference">
+    <section class="episode-reading episode-reference-layout exact-episode-layout" data-reading-type="${sectionType}">
       <button class="reading-reference-close" onclick="renderEpisodeHome(AppState.episode)" aria-label="Voltar ao episódio">×</button>
 
-      <div class="reading-reference-timeline">
-        ${renderReferenceStepScripture(episode)}
-        ${renderReferenceStepMessage(episode)}
-        ${renderReferenceStepVisualTriggers(episode)}
-        ${renderReferenceStepConduct(episode)}
-        ${renderReferenceStepTools(episode)}
+      <header class="exact-reading-intro ${sectionType}">
+        <span>${seasonLabel}</span>
+        <small>Episódio ${episode.id} - ${episode.title}</small>
+        <h1>${sectionTitle}</h1>
+      </header>
+
+      <div class="reading-reference-timeline exact-timeline ${sectionType}">
+        ${items.map((item, index) => renderExactEpisodeStep(item, index, sectionType, episode)).join('')}
       </div>
 
-      <div class="reading-reference-progress" id="readingReferenceProgress" aria-label="Progresso de leitura">
-        <span id="readingSectionLabel">Prepare-se</span>
+      <div class="reading-reference-progress exact-bottom-progress ${sectionType === 'conduct' ? 'is-conduct' : ''}" id="readingReferenceProgress" aria-label="Progresso de leitura">
+        <span id="readingSectionLabel">${sectionType === 'conduct' ? 'Conduza' : 'Prepare-se'}</span>
         <div class="reading-progress-track" aria-hidden="true">
           <div class="reading-progress-fill" id="readingProgressFill"></div>
         </div>
-        <span>passo <b id="readingCurrentStep">1</b>/5</span>
+        <span>passo <b id="readingCurrentStep">1</b>/${items.length || 1}</span>
       </div>
     </section>
   `;
@@ -248,155 +254,154 @@ function openEpisodeSection(sectionType = 'prepare') {
   window.scrollTo({ top: 0, behavior: 'smooth' });
   initEpisodeScrollProgress();
   initReferenceStepObserver();
-  markSectionProgress('combined', 5);
+  markSectionProgress(sectionType, items.length || 1);
 
   setTimeout(() => {
     loadLeaderToolNotes(episode.id);
     loadLeaderToolPrayers(episode.id);
   }, 80);
-
-  if (sectionType === 'conduct') {
-    setTimeout(() => {
-      document.getElementById('step-conduct')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, 120);
-  }
 }
 
-function renderReferenceStepScripture(episode) {
+function renderExactEpisodeStep(item, index, sectionType, episode) {
+  const stepNumber = index + 1;
+  const type = item.type || 'default';
+  const optional = item.optional ? '<span class="exact-optional">opcional</span>' : '';
+
+  return `
+    <article class="reference-step exact-step exact-step-${type} ${sectionType}" data-reference-step="${stepNumber}">
+      <div class="reference-dot"></div>
+      <div class="reference-step-body exact-step-card">
+        <div class="reference-step-label">${optional}</div>
+        <h2><span>${stepNumber}.</span> ${item.title}</h2>
+        ${renderExactStepContent(item, sectionType, episode)}
+      </div>
+    </article>
+  `;
+}
+
+function renderExactStepContent(item, sectionType, episode) {
+  if (sectionType === 'prepare' && item.type === 'scripture') {
+    return renderExactScriptureStep(episode);
+  }
+
+  if (sectionType === 'prepare' && item.type === 'reflection') {
+    return `
+      <div class="exact-text-flow">
+        ${(item.content || []).map(text => renderTextLine(text, item.type)).join('')}
+      </div>
+      ${renderExactVisualCarousel()}
+    `;
+  }
+
+  if (sectionType === 'prepare' && item.type === 'story') {
+    return `
+      <div class="exact-text-flow">
+        ${(item.content || []).map(text => renderTextLine(text, item.type)).join('')}
+      </div>
+      ${renderInlineStoryNotes(episode.id)}
+    `;
+  }
+
+  if (item.type === 'challenge') {
+    return `<div class="exact-challenge-box">${(item.content || []).map(text => renderTextLine(text, item.type)).join('')}</div>`;
+  }
+
+  if (sectionType === 'conduct' && item.type === 'dynamic') {
+    return renderExactDynamicStep(item.content || []);
+  }
+
+  if (sectionType === 'conduct' && item.title === 'Pedidos de oração') {
+    return renderPrayerTool(episode.id);
+  }
+
+  if (!item.content || !item.content.length) {
+    return '';
+  }
+
+  return `<div class="exact-text-flow">${item.content.map(text => renderTextLine(text, item.type)).join('')}</div>`;
+}
+
+function renderExactScriptureStep(episode) {
   const scripture = episode.scriptureHighlight || {};
   return `
-    <article class="reference-step reference-step-scripture" data-reference-step="1">
-      <div class="reference-dot"></div>
-      <div class="reference-step-body no-card">
-        <div class="reference-step-label">Passo 1 • texto bíblico</div>
-        <h2>Preparação individual <span>${scripture.reference || 'Marcos 1:1–15'}</span></h2>
-        <blockquote>“${scripture.verse || ''}”</blockquote>
-        <button class="reference-read-all-button" onclick="openScriptureModal()">abrir texto bíblico completo</button>
-      </div>
-    </article>
+    <div class="exact-text-flow">
+      <p>Leia ${scripture.reference || 'Marcos 1:1–15'}.</p>
+    </div>
+    <section class="exact-verse-card">
+      <span>Versículo-chave:</span>
+      <blockquote>“${scripture.verse || ''}”</blockquote>
+      <small>— ${scripture.highlightVerse || scripture.reference || ''}</small>
+    </section>
+    <button class="scripture-reference-link exact-scripture-button" onclick="openScriptureModal()">
+      <span>Abrir texto bíblico completo</span>
+      <small>${scripture.reference || ''}</small>
+    </button>
   `;
 }
 
-function renderReferenceStepMessage(episode) {
-  const manifesto = findEpisodeItem(episode, 'prepare', 'manifesto');
-  const teaching = findEpisodeItem(episode, 'prepare', 'teaching');
-  const content = [...(manifesto?.content || []), ...(teaching?.content || [])];
-  const intro = content.slice(0, 8).map(text => renderInlineEmphasis(text)).join('');
-  const rest = content.slice(8).map(text => renderTextLine(text, 'teaching')).join('');
-
-  return `
-    <article class="reference-step reference-step-message" data-reference-step="2">
-      <div class="reference-dot"></div>
-      <div class="reference-step-body no-card">
-        <div class="reference-step-label">Passo 2 • contexto e ideia principal</div>
-        <h2>Entenda a mensagem</h2>
-        <div class="reference-editorial-text">${intro}</div>
-        ${rest ? `<details class="reference-details"><summary>ver aprofundamento</summary><div>${rest}</div></details>` : ''}
-      </div>
-    </article>
-  `;
-}
-
-function renderReferenceStepVisualTriggers(episode) {
-  const reflection = findEpisodeItem(episode, 'prepare', 'reflection');
-  const story = findEpisodeItem(episode, 'prepare', 'story');
-  const chips = extractTriggerChips([...(reflection?.content || []), ...(story?.content || [])]);
-  const question = 'Quem está sentado no trono do coração?';
-  const carousel = [
-    { text: 'Percebeu ansiedade?', tag: 'ansiedade', img: 'assets/images/episodio-2-trono.jpg' },
-    { text: 'Tentou controlar tudo?', tag: 'controle', img: 'assets/images/episodio-1-trono.jpg' },
-    { text: 'Agradou alguém?', tag: 'aprovação', img: 'assets/images/episodio-4-trono.jpg' },
-    { text: 'Mudou a direção?', tag: 'decisão', img: 'assets/images/episodio-3-trono.jpg' }
+function renderExactVisualCarousel() {
+  const cards = [
+    { tag: 'aprovação', text: 'Quando agradar pesa mais que obedecer', img: 'assets/images/episodio-4-trono.jpg' },
+    { tag: 'ansiedade', text: 'Quando o controle vira o centro', img: 'assets/images/episodio-2-trono.jpg' },
+    { tag: 'medo', text: 'Quando o medo decide por você', img: 'assets/images/episodio-3-trono.jpg' },
+    { tag: 'entrega', text: 'Quando Jesus volta ao centro', img: 'assets/images/episodio-1-trono.jpg' }
   ];
 
   return `
-    <article class="reference-step reference-step-visual" data-reference-step="3">
-      <div class="reference-dot"></div>
-      <div class="reference-step-body">
-        <div class="reference-step-label">Passo 3 • reflexão do líder</div>
-        <h2>Gatilhos para pensar antes de conduzir</h2>
-        <div class="visual-trigger-panel">
-          <div class="visual-trigger-question">
-            <p>${question}</p>
-            <div class="visual-trigger-tags">
-              ${chips.slice(0, 5).map(chip => `<span>#${chip}</span>`).join('')}
-            </div>
-          </div>
-
-          <div class="visual-mini-carousel">
-            <div class="visual-card-row">
-              ${carousel.map((card, index) => `
-                <div class="visual-card" style="--visual-bg:url('${card.img}')">
-                  <span>${String(index + 1).padStart(2, '0')}</span>
-                  <small>${card.tag}</small>
-                  <strong>${card.text}</strong>
-                </div>
-              `).join('')}
-            </div>
-          </div>
-        </div>
-        <details class="reference-details visual-details">
-          <summary>ver reflexão completa</summary>
-          <div>${[...(reflection?.content || []), ...(story?.content || [])].map(text => renderTextLine(text, 'reflection')).join('')}</div>
-          ${renderInlineStoryNotes(episode.id)}
-        </details>
-      </div>
-    </article>
+    <div class="visual-card-row exact-visual-row" aria-label="Imagens de reflexão">
+      ${cards.map((card, index) => `
+        <article class="visual-card exact-visual-card">
+          <img src="${card.img}" alt="${card.tag}" loading="lazy" onerror="this.style.display='none'">
+          <div class="visual-card-shade"></div>
+          <span>${String(index + 1).padStart(2, '0')}</span>
+          <small>${card.tag}</small>
+          <strong>${card.text}</strong>
+        </article>
+      `).join('')}
+    </div>
   `;
 }
 
-function renderReferenceStepConduct(episode) {
-  const conduct = episode.conduct || [];
-  const open = findEpisodeItem(episode, 'conduct', 'story') || conduct[1];
-  const dynamic = findEpisodeItem(episode, 'conduct', 'dynamic');
-  const challenge = findEpisodeItem(episode, 'conduct', 'challenge');
-  const scripture = findEpisodeItem(episode, 'conduct', 'scripture');
-  const reflection = findEpisodeItem(episode, 'conduct', 'reflection');
-  const silence = findEpisodeItem(episode, 'conduct', 'silence');
+function renderExactDynamicStep(content = []) {
+  const before = [];
+  let optionA = 'o que os outros pensam';
+  let optionB = 'ansiedade';
+  const after = [];
+  let mode = 'before';
+
+  content.forEach(raw => {
+    const text = String(raw || '').trim();
+    if (!text) return;
+    const lower = text.toLowerCase();
+    if (lower === 'o que os outros pensam') {
+      optionA = text;
+      mode = 'choice';
+      return;
+    }
+    if (lower === 'ou') {
+      mode = 'choice';
+      return;
+    }
+    if (lower === 'ansiedade') {
+      optionB = text;
+      mode = 'after';
+      return;
+    }
+    if (mode === 'after') after.push(text);
+    else before.push(text);
+  });
 
   return `
-    <article class="reference-step reference-step-conduct" id="step-conduct" data-reference-step="4">
-      <div class="reference-dot"></div>
-      <div class="reference-step-body no-card">
-        <div class="reference-step-label">Passo 4 • conduza a célula</div>
-        <h2>Ritmo do encontro</h2>
-        <div class="conduct-showcase-grid">
-          <section class="conduct-showcase-card">
-            <h3>1. ORE & QUEBRE O GELO</h3>
-            <p>${open?.content?.[0] || 'Ore, quebre o gelo, acolha a todos.'}</p>
-            <small>${open?.content?.[2] || ''}</small>
-          </section>
-
-          <section class="conduct-showcase-card dynamic-card">
-            <h3>2. CONDUZA A DISCUSSÃO</h3>
-            <p>Interativo dinâmico <strong>“ESCOLHA UM LADO”</strong></p>
-            ${renderReferenceDynamic(dynamic?.content || [])}
-          </section>
-
-          <section class="conduct-showcase-card compact">
-            <h3>3. LEIA & APROFUNDE</h3>
-            <p>${scripture?.content?.[0] || ''}</p>
-            <p>${reflection?.content?.[0] || ''}</p>
-          </section>
-
-          <section class="conduct-showcase-card compact gold-soft">
-            <h3>4. SILÊNCIO & DESAFIO</h3>
-            <p>${silence?.content?.[1] || ''}</p>
-            <p>${challenge?.content?.join(' ') || ''}</p>
-          </section>
-        </div>
-
-        <details class="reference-details">
-          <summary>ver roteiro completo de condução</summary>
-          <div>${conduct.map(item => `
-            <section class="reference-script-block">
-              <h4>${item.title}</h4>
-              ${item.content?.length ? item.content.map(text => renderTextLine(text, item.type)).join('') : '<p>Conduza este momento com simplicidade e presença.</p>'}
-            </section>
-          `).join('')}</div>
-        </details>
-      </div>
-    </article>
+    <div class="exact-text-flow">
+      ${before.map(text => renderTextLine(text, 'dynamic')).join('')}
+    </div>
+    <div class="reference-dynamic-choice exact-dynamic-choice">
+      <div><b>A</b><span>${optionA}</span></div>
+      <div><b>B</b><span>${optionB}</span></div>
+    </div>
+    <div class="exact-text-flow exact-dynamic-after">
+      ${after.map(text => renderTextLine(text, 'dynamic')).join('')}
+    </div>
   `;
 }
 
@@ -438,6 +443,33 @@ function renderReferenceStepTools(episode) {
       </div>
     </article>
   `;
+}
+
+function renderReferenceDisclosure(id, label, html) {
+  return `
+    <section class="reference-disclosure" id="reference-disclosure-${id}">
+      <button class="reference-disclosure-button" onclick="toggleReferenceDisclosure('${id}', this)" aria-expanded="false">
+        <span>${label}</span>
+      </button>
+      <div class="reference-disclosure-content" hidden>
+        ${html}
+      </div>
+    </section>
+  `;
+}
+
+function toggleReferenceDisclosure(id, button) {
+  const wrapper = document.getElementById(`reference-disclosure-${id}`);
+  if (!wrapper) return;
+  const content = wrapper.querySelector('.reference-disclosure-content');
+  const isOpen = wrapper.classList.toggle('open');
+  if (content) content.hidden = !isOpen;
+  if (button) button.setAttribute('aria-expanded', String(isOpen));
+}
+
+function findEpisodeItemByTitle(episode, section, fragment) {
+  const normalized = String(fragment || '').toLowerCase();
+  return (episode?.[section] || []).find(item => String(item.title || '').toLowerCase().includes(normalized));
 }
 
 function findEpisodeItem(episode, section, type) {
@@ -1018,3 +1050,4 @@ window.saveStoryNoteToEpisode = saveStoryNoteToEpisode;
 window.exitEpisodeToSeason = exitEpisodeToSeason;
 window.toggleReadingScene = toggleReadingScene;
 window.openNextReadingScene = openNextReadingScene;
+window.toggleReferenceDisclosure = toggleReferenceDisclosure;
