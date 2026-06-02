@@ -3107,3 +3107,277 @@ body.episode-reading-active #episodeContent {
   .exact-step p { font-size: 14.2px !important; }
   .exact-visual-row { grid-auto-columns: 80%; }
 }
+
+/* Correção v8 — preserva texto, melhora navegação, hierarquia e respiro */
+:root {
+  --prepare-gold: #d2a84d;
+  --prepare-gold-soft: #f0d184;
+  --conduct-green: #5f8f68;
+  --conduct-green-soft: #a8cf96;
+}
+
+.exact-episode-layout {
+  padding-bottom: 132px !important;
+}
+
+.exact-timeline {
+  padding-left: 42px !important;
+  padding-right: 16px !important;
+}
+
+.exact-step-card {
+  padding: 26px 24px 28px !important;
+  border-radius: 24px !important;
+}
+
+.exact-step.prepare .exact-step-card,
+.exact-step.prepare .reference-step-body:not(.no-card) {
+  border-color: rgba(210, 168, 77, .24) !important;
+  background:
+    radial-gradient(circle at top right, rgba(210, 168, 77, .22), transparent 38%),
+    linear-gradient(145deg, rgba(255,255,255,.058), rgba(255,255,255,.020)) !important;
+}
+
+.exact-step.conduct .exact-step-card,
+.exact-step.conduct .reference-step-body:not(.no-card) {
+  border-color: rgba(95, 143, 104, .28) !important;
+  background:
+    radial-gradient(circle at top right, rgba(95, 143, 104, .32), transparent 40%),
+    linear-gradient(145deg, rgba(255,255,255,.058), rgba(255,255,255,.020)) !important;
+}
+
+.exact-step .reference-step-label:empty {
+  display: none !important;
+}
+
+.exact-step h2 {
+  display: flex !important;
+  align-items: baseline !important;
+  gap: 8px !important;
+  margin-bottom: 18px !important;
+  font-size: clamp(18px, 4.8vw, 25px) !important;
+  line-height: 1.18 !important;
+  font-weight: 680 !important;
+  letter-spacing: -.025em !important;
+}
+
+.exact-step h2 span {
+  flex: 0 0 auto;
+  font-size: .85em !important;
+  color: var(--prepare-gold-soft) !important;
+}
+
+.exact-step.conduct h2 span {
+  color: var(--conduct-green-soft) !important;
+}
+
+.exact-text-flow p,
+.exact-step p,
+.exact-dynamic-after p,
+.reference-disclosure-content p {
+  font-size: 13.6px !important;
+  line-height: 1.56 !important;
+  font-weight: 380 !important;
+  margin-bottom: 9px !important;
+}
+
+.exact-text-flow .scene-question,
+.exact-step .scene-question,
+.exact-challenge-box p:last-child {
+  font-size: clamp(18px, 4.9vw, 25px) !important;
+  line-height: 1.18 !important;
+  font-weight: 520 !important;
+  padding: 15px 16px !important;
+  margin: 13px 0 !important;
+}
+
+.exact-text-flow .scene-highlight-line,
+.exact-step .scene-highlight-line {
+  font-size: 13.2px !important;
+  font-weight: 620 !important;
+  padding: 8px 11px !important;
+}
+
+.exact-verse-card {
+  padding: 19px 18px !important;
+}
+
+.exact-verse-card blockquote {
+  font-size: clamp(19px, 5vw, 27px) !important;
+  line-height: 1.20 !important;
+}
+
+.exact-challenge-box {
+  padding: 18px 17px !important;
+}
+
+.exact-visual-row {
+  grid-auto-columns: 78% !important;
+  gap: 13px !important;
+}
+
+.exact-visual-card {
+  min-height: 204px !important;
+  overflow: hidden;
+}
+
+.exact-visual-card.no-image {
+  background:
+    radial-gradient(circle at 20% 10%, rgba(244,216,142,.24), transparent 34%),
+    radial-gradient(circle at 85% 90%, rgba(95,143,104,.34), transparent 42%),
+    linear-gradient(145deg, rgba(255,255,255,.09), rgba(255,255,255,.025));
+}
+
+.exact-visual-card.no-image::before {
+  content: "adicione imagem";
+  position: absolute;
+  right: 14px;
+  top: 14px;
+  z-index: 4;
+  padding: 5px 8px;
+  border-radius: 999px;
+  color: rgba(255,255,255,.72);
+  background: rgba(0,0,0,.32);
+  font-size: 10px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.visual-card strong {
+  font-size: 18px !important;
+  line-height: 1.12 !important;
+}
+
+.story-access-link {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 10px;
+  padding: 10px 14px;
+  border: 1px solid rgba(168,207,150,.32);
+  border-radius: 999px;
+  color: var(--conduct-green-soft);
+  background: rgba(95,143,104,.12);
+  font-size: 12px;
+  font-weight: 720;
+}
+
+.exact-bottom-progress {
+  position: fixed !important;
+  left: max(12px, env(safe-area-inset-left)) !important;
+  right: max(12px, env(safe-area-inset-right)) !important;
+  bottom: max(10px, env(safe-area-inset-bottom)) !important;
+  z-index: 9999 !important;
+  display: grid !important;
+  grid-template-columns: auto minmax(0, 1fr) auto !important;
+  gap: 8px !important;
+  align-items: center !important;
+  min-height: 48px !important;
+  padding: 7px 8px !important;
+  border-radius: 999px !important;
+  background: rgba(5, 7, 6, .88) !important;
+  border: 1px solid rgba(210,168,77,.22) !important;
+  box-shadow: 0 16px 40px rgba(0,0,0,.42) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+}
+
+.exact-bottom-progress.is-conduct {
+  border-color: rgba(95,143,104,.30) !important;
+}
+
+.progress-center {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 8px;
+  align-items: center;
+}
+
+.progress-nav-button {
+  min-height: 34px;
+  padding: 0 10px;
+  border: 1px solid rgba(210,168,77,.22);
+  border-radius: 999px;
+  color: rgba(244,216,142,.88);
+  background: rgba(210,168,77,.09);
+  font-size: 11px;
+  font-weight: 720;
+  white-space: nowrap;
+}
+
+.exact-bottom-progress.is-conduct .progress-nav-button {
+  border-color: rgba(95,143,104,.30);
+  color: rgba(168,207,150,.92);
+  background: rgba(95,143,104,.13);
+}
+
+.exact-bottom-progress span {
+  font-size: 10.5px !important;
+  font-weight: 620 !important;
+}
+
+.exact-bottom-progress .reading-progress-track {
+  height: 4px !important;
+  min-width: 42px;
+}
+
+.exact-bottom-progress .reading-progress-fill {
+  background: linear-gradient(90deg, var(--prepare-gold), var(--prepare-gold-soft)) !important;
+}
+
+.exact-bottom-progress.is-conduct .reading-progress-fill {
+  background: linear-gradient(90deg, var(--conduct-green), var(--conduct-green-soft)) !important;
+}
+
+.episode-hub-card.conduct .episode-hub-icon,
+.exact-step.conduct .reference-dot {
+  background: linear-gradient(135deg, var(--conduct-green), var(--conduct-green-soft)) !important;
+  color: #07110d !important;
+}
+
+@media (max-width: 560px) {
+  .exact-step-card {
+    padding: 24px 22px 26px !important;
+  }
+
+  .exact-step h2 {
+    font-size: clamp(17.5px, 4.9vw, 22px) !important;
+  }
+
+  .exact-text-flow p,
+  .exact-step p,
+  .exact-dynamic-after p,
+  .reference-disclosure-content p {
+    font-size: 13.4px !important;
+  }
+
+  .exact-text-flow .scene-question,
+  .exact-step .scene-question,
+  .exact-challenge-box p:last-child {
+    font-size: clamp(17px, 4.9vw, 22px) !important;
+  }
+
+  .progress-nav-button {
+    padding: 0 8px;
+    font-size: 10.5px;
+  }
+
+  .progress-center {
+    gap: 6px;
+  }
+}
+
+.highlight-gold {
+  color: #d9b56f;
+  font-weight: 700;
+}
+
+.highlight-green {
+  color: #5FAF7A;
+  font-weight: 700;
+}
+
+.highlight-white {
+  color: #ffffff;
+  font-weight: 700;
+}

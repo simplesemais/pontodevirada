@@ -19,8 +19,8 @@
         "Jesus não veio apenas como salvador.",
         "Ele veio como Rei.",
         "E isso muda tudo.",
-        "Porque a mensagem de Jesus não pede apenas admiração ou crença.",
-        "Ela pede entrega.",
+        "<span class='highlight-gold'>Porque a mensagem de Jesus não pede apenas admiração ou crença.</span>",
+        "<span class='highlight-gold'>Ela pede entrega.</span>",
         "O centro da vida nunca fica vazio.",
         "Sempre existe alguma coisa governando pensamentos, escolhas, emoções e prioridades.",
         "A pergunta central deste encontro é:",
@@ -99,7 +99,6 @@
     {
       "title": "Entenda melhor",
       "type": "deeper",
-      "optional": true,
       "content": [
         "Marcos começa seu evangelho apresentando Jesus como o Filho de Deus e mostrando que algo novo estava começando. João Batista prepara o caminho e chama as pessoas ao arrependimento, enquanto Jesus é batizado e confirmado pelo Pai antes de iniciar Seu ministério.",
         "Quando Jesus anuncia que o Reino de Deus está próximo, Ele está mostrando mais do que uma religião ou um conjunto de regras. Ele está anunciando que Deus quer governar novamente o coração das pessoas.",

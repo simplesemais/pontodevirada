@@ -241,13 +241,21 @@ function openEpisodeSection(sectionType = 'prepare') {
         ${items.map((item, index) => renderExactEpisodeStep(item, index, sectionType, episode)).join('')}
       </div>
 
-      <div class="reading-reference-progress exact-bottom-progress ${sectionType === 'conduct' ? 'is-conduct' : ''}" id="readingReferenceProgress" aria-label="Progresso de leitura">
-        <span id="readingSectionLabel">${sectionType === 'conduct' ? 'Conduza' : 'Prepare-se'}</span>
-        <div class="reading-progress-track" aria-hidden="true">
-          <div class="reading-progress-fill" id="readingProgressFill"></div>
+      <nav class="reading-reference-progress exact-bottom-progress ${sectionType === 'conduct' ? 'is-conduct' : ''}" id="readingReferenceProgress" aria-label="Navegação e progresso da leitura">
+        <button class="progress-nav-button progress-back" onclick="handleReadingProgressBack('${sectionType}')">
+          ${sectionType === 'conduct' ? '← Prepare-se' : '← Episódio'}
+        </button>
+        <div class="progress-center">
+          <span id="readingSectionLabel">${sectionType === 'conduct' ? 'Conduza' : 'Prepare-se'}</span>
+          <div class="reading-progress-track" aria-hidden="true">
+            <div class="reading-progress-fill" id="readingProgressFill"></div>
+          </div>
+          <span>passo <b id="readingCurrentStep">1</b>/${items.length || 1}</span>
         </div>
-        <span>passo <b id="readingCurrentStep">1</b>/${items.length || 1}</span>
-      </div>
+        <button class="progress-nav-button progress-next" onclick="handleReadingProgressNext('${sectionType}')">
+          ${sectionType === 'conduct' ? 'Episódio →' : 'Conduza →'}
+        </button>
+      </nav>
     </section>
   `;
 
@@ -265,7 +273,7 @@ function openEpisodeSection(sectionType = 'prepare') {
 function renderExactEpisodeStep(item, index, sectionType, episode) {
   const stepNumber = index + 1;
   const type = item.type || 'default';
-  const optional = item.optional ? '<span class="exact-optional">opcional</span>' : '';
+  const optional = '';
 
   return `
     <article class="reference-step exact-step exact-step-${type} ${sectionType}" data-reference-step="${stepNumber}">
@@ -299,6 +307,15 @@ function renderExactStepContent(item, sectionType, episode) {
         ${(item.content || []).map(text => renderTextLine(text, item.type)).join('')}
       </div>
       ${renderInlineStoryNotes(episode.id)}
+    `;
+  }
+
+  if (sectionType === 'conduct' && item.type === 'story') {
+    return `
+      <div class="exact-text-flow">
+        ${(item.content || []).map(text => renderTextLine(text, item.type)).join('')}
+      </div>
+      <button class="story-access-link" onclick="openLeaderTool('notes', ${episode.id})">Acesse aqui a história que você escreveu</button>
     `;
   }
 
@@ -341,17 +358,17 @@ function renderExactScriptureStep(episode) {
 
 function renderExactVisualCarousel() {
   const cards = [
-    { tag: 'aprovação', text: 'Quando agradar pesa mais que obedecer', img: 'assets/images/episodio-4-trono.jpg' },
-    { tag: 'ansiedade', text: 'Quando o controle vira o centro', img: 'assets/images/episodio-2-trono.jpg' },
-    { tag: 'medo', text: 'Quando o medo decide por você', img: 'assets/images/episodio-3-trono.jpg' },
-    { tag: 'entrega', text: 'Quando Jesus volta ao centro', img: 'assets/images/episodio-1-trono.jpg' }
+    { tag: 'aprovação', text: 'Quando agradar pesa mais que obedecer', img: 'assets/images/carrossel-aprovacao.jpg' },
+    { tag: 'ansiedade', text: 'Quando o controle vira o centro', img: 'assets/images/carrossel-ansiedade.jpg' },
+    { tag: 'medo', text: 'Quando o medo decide por você', img: 'assets/images/carrossel-medo.jpg' },
+    { tag: 'entrega', text: 'Quando Jesus volta ao centro', img: 'assets/images/carrossel-entrega.jpg' }
   ];
 
   return `
     <div class="visual-card-row exact-visual-row" aria-label="Imagens de reflexão">
       ${cards.map((card, index) => `
         <article class="visual-card exact-visual-card">
-          <img src="${card.img}" alt="${card.tag}" loading="lazy" onerror="this.style.display='none'">
+          <img src="${card.img}" alt="${card.tag}" loading="lazy" onerror="this.closest('.visual-card').classList.add('no-image'); this.remove();">
           <div class="visual-card-shade"></div>
           <span>${String(index + 1).padStart(2, '0')}</span>
           <small>${card.tag}</small>
@@ -493,6 +510,22 @@ function renderInlineEmphasis(text) {
   return `<p>${safe}</p>`;
 }
 
+function handleReadingProgressBack(sectionType) {
+  if (sectionType === 'conduct') {
+    openEpisodeSection('prepare');
+  } else {
+    renderEpisodeHome(AppState.episode);
+  }
+}
+
+function handleReadingProgressNext(sectionType) {
+  if (sectionType === 'conduct') {
+    renderEpisodeHome(AppState.episode);
+  } else {
+    openEpisodeSection('conduct');
+  }
+}
+
 function initReferenceStepObserver() {
   const stepLabel = document.getElementById('readingCurrentStep');
   const sectionLabel = document.getElementById('readingSectionLabel');
@@ -503,7 +536,8 @@ function initReferenceStepObserver() {
   const updateLabels = step => {
     const number = Number(step || 1);
     stepLabel.textContent = String(number);
-    const isConduct = number >= 4;
+    const section = document.querySelector('.episode-reading')?.dataset.readingType || 'prepare';
+    const isConduct = section === 'conduct';
     if (sectionLabel) sectionLabel.textContent = isConduct ? 'Conduza' : 'Prepare-se';
     if (progress) progress.classList.toggle('is-conduct', isConduct);
   };
