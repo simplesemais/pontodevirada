@@ -120,13 +120,11 @@ body.episode-reading-active header {
   position: relative;
   padding: 22px 20px;
   margin: 0 0 22px;
-  border: 1px solid rgba(215, 178, 109, .22);
+  border: 1px solid rgba(215, 178, 109, .16);
   border-radius: 24px;
   overflow: hidden;
-  background:
-    radial-gradient(circle at top right, rgba(215, 178, 109, .14), transparent 34%),
-    linear-gradient(135deg, rgba(255, 255, 255, .065), rgba(255, 255, 255, .024));
-  box-shadow: 0 18px 48px rgba(0, 0, 0, .23);
+  background: linear-gradient(135deg, rgba(255, 255, 255, .055), rgba(255, 255, 255, .02));
+  box-shadow: 0 12px 30px rgba(0, 0, 0, .18);
 }
 
 .scripture-feature::before {
@@ -186,7 +184,7 @@ body.episode-reading-active header {
   width: 100%;
   min-height: 82px;
   padding: 16px 18px;
-  border: 1px solid rgba(215, 178, 109, .12);
+  border: 1px solid rgba(215, 178, 109, .08);
   border-radius: 20px;
   display: grid;
   grid-template-columns: 46px 1fr 18px;
@@ -194,11 +192,9 @@ body.episode-reading-active header {
   gap: 14px;
   text-align: left;
   color: #fff;
-  background:
-    radial-gradient(circle at top right, rgba(215, 178, 109, .07), transparent 42%),
-    linear-gradient(135deg, rgba(255, 255, 255, .07), rgba(255, 255, 255, .022));
+  background: rgba(255, 255, 255, .03);
   cursor: pointer;
-  box-shadow: 0 14px 38px rgba(0, 0, 0, .18);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, .14);
 }
 
 .episode-hub-card:active,
@@ -253,11 +249,11 @@ body.episode-reading-active header {
 .leader-launcher {
   width: 100%;
   padding: 15px 16px;
-  border: 1px solid rgba(255, 255, 255, .09);
+  border: 1px solid rgba(255, 255, 255, .07);
   border-radius: 18px;
   text-align: left;
   color: #fff;
-  background: rgba(255, 255, 255, .04);
+  background: rgba(255, 255, 255, .03);
   cursor: pointer;
 }
 
@@ -2257,7 +2253,7 @@ body.episode-reading-active #episodeContent {
 
 .episode-reading-combined .reading-scene-content {
   position: relative;
-  padding: 4px 0 22px !important;
+  padding: 10px 0 26px !important;
   border: 0 !important;
   border-radius: 0 !important;
   background: transparent !important;
@@ -2265,9 +2261,9 @@ body.episode-reading-active #episodeContent {
 }
 
 .episode-reading-combined .reading-scene {
-  border-bottom: 1px solid rgba(255, 255, 255, .075);
-  padding-bottom: 24px;
-  margin-bottom: 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, .05);
+  padding-bottom: 28px;
+  margin-bottom: 32px;
 }
 
 .episode-reading-combined .reading-scene:last-child {
@@ -2307,7 +2303,7 @@ body.episode-reading-active #episodeContent {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-top: 2px;
+  margin-top: 10px;
 }
 
 .episode-reading-combined .reading-more-row::before {
