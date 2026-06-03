@@ -82,9 +82,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.target === this) closeSearch();
   });
 
-  document.getElementById('scriptureModal').addEventListener('click', function(e) {
-    if (e.target === this) closeScripture();
-  });
+  const scriptureModal = document.getElementById('scriptureModal');
+  if (scriptureModal) {
+    scriptureModal.addEventListener('click', function(e) {
+      if (e.target === this) closeScripture();
+    });
+  }
 
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') {

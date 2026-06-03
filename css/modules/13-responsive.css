@@ -134,7 +134,7 @@
   /* MOBILE POLISH */
 
 .hero-content {
-  padding-bottom: 64px;
+  padding-bottom: 52px;
 }
 
 .hero h1 {
@@ -148,12 +148,12 @@
 }
 
 .season-card {
-  min-height: 300px;
+  min-height: 280px;
 }
 
 .season-content {
-  min-height: 300px;
-  padding: 28px;
+  min-height: 280px;
+  padding: 24px;
 }
 
 .season-content h3 {
