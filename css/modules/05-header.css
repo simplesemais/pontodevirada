@@ -42,7 +42,7 @@ header {
   font-size: 13px;
   cursor: pointer;
   transition: color .2s;
-  padding: 4px 0;
+  padding: 8px 0;
 }
 
 .header-actions button:hover {
