@@ -134,7 +134,7 @@
   /* MOBILE POLISH */
 
 .hero-content {
-  padding-bottom: 54px;
+  padding-bottom: 64px;
 }
 
 .hero h1 {
@@ -143,20 +143,21 @@
 
 .hero p {
   font-size: 14px;
-  line-height: 1.75;
+  line-height: 1.85;
+  max-width: 34ch;
 }
 
 .season-card {
-  min-height: 330px;
+  min-height: 300px;
 }
 
 .season-content {
-  min-height: 330px;
-  padding: 26px;
+  min-height: 300px;
+  padding: 28px;
 }
 
 .season-content h3 {
-  font-size: 36px;
+  font-size: 34px;
 }
 
 .share-modal {

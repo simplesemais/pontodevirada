@@ -1,8 +1,8 @@
 /* SEASON VIEW */
 
 .episodes-header {
-  padding-top: 100px;
-  padding-bottom: 32px;
+  padding-top: 84px;
+  padding-bottom: 28px;
 }
 
 .back {
@@ -26,20 +26,21 @@
 .episodes-title {
   font-family: 'Playfair Display', serif;
   font-size: clamp(44px, 14vw, 64px);
-  line-height: 1;
+  line-height: 1.05;
   margin-bottom: 16px;
   color: #fff;
 }
 
 .episodes-sub {
   color: #d4d4db;
-  line-height: 1.85;
+  line-height: 1.95;
   font-size: 15px;
+  max-width: 52ch;
   white-space: pre-line;
 }
 
 .season-intro {
-  margin-top: 14px;
+  margin-top: 20px;
   margin-bottom: 32px;
 }
 
@@ -65,8 +66,8 @@
 .episode-list {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  padding-bottom: 64px;
+  gap: 20px;
+  padding-bottom: 72px;
 }
 
 .episode-card {
@@ -116,14 +117,14 @@
 .episode-card h3 {
   font-family: 'Playfair Display', serif;
   font-size: 26px;
-  line-height: 1.15;
-  margin-bottom: 10px;
+  line-height: 1.22;
+  margin-bottom: 12px;
   color: #fff;
 }
 
 .episode-card p {
   color: #d4d4db;
-  line-height: 1.75;
+  line-height: 1.95;
   font-size: 14px;
 }
 
