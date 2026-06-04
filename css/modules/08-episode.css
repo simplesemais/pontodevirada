@@ -371,41 +371,41 @@ body.episode-reading-active #episodeContent {
   left: 12px;
   top: 14px;
   bottom: 16px;
-  width: 2px;
+  width: 4px;
   border-radius: 999px;
   background: linear-gradient(180deg,
-    rgba(215, 178, 109, .08),
-    rgba(244, 216, 142, .70) 18%,
-    rgba(87, 139, 95, .78) 83%,
-    rgba(87, 139, 95, .12)
+    rgba(215, 178, 109, .18),
+    rgba(244, 216, 142, .95) 18%,
+    rgba(87, 139, 95, .98) 83%,
+    rgba(87, 139, 95, .24)
   );
-  box-shadow: 0 0 14px rgba(244, 216, 142, .18);
+  box-shadow: 0 0 24px rgba(244, 216, 142, .42);
 }
 
 .reference-step {
   position: relative;
-  margin: 0 0 38px;
+  margin: 0 0 56px;
 }
 
 .reference-dot {
   position: absolute;
   left: -32px;
   top: 6px;
-  width: 12px;
-  height: 12px;
+  width: 18px;
+  height: 18px;
   border-radius: 999px;
   background: #e8c574;
   box-shadow:
-    0 0 0 7px rgba(215, 178, 109, .075),
-    0 0 16px rgba(244, 216, 142, .58);
+    0 0 0 12px rgba(215, 178, 109, .18),
+    0 0 28px rgba(244, 216, 142, .82);
 }
 
 .reference-step-conduct .reference-dot,
 .reference-step-tools .reference-dot {
   background: #8dbb78;
   box-shadow:
-    0 0 0 7px rgba(86, 146, 92, .10),
-    0 0 16px rgba(141, 187, 120, .46);
+    0 0 0 12px rgba(86, 146, 92, .22),
+    0 0 28px rgba(141, 187, 120, .72);
 }
 
 .reference-step-label {
@@ -435,12 +435,12 @@ body.episode-reading-active #episodeContent {
 
 .reference-step h2 span {
   display: block;
-  margin-top: 5px;
-  color: rgba(255, 255, 255, .62);
-  font-family: Inter, system-ui, sans-serif;
-  font-size: 12px;
+  margin-top: 8px;
+  color: #d7b26d;
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
   letter-spacing: .02em;
-  font-weight: 520;
+  font-weight: 800;
 }
 
 .reference-step-body.no-card {
@@ -451,11 +451,12 @@ body.episode-reading-active #episodeContent {
 .visual-trigger-panel,
 .conduct-showcase-card,
 .reference-tool-card {
-  border: 1px solid rgba(215, 178, 109, .18);
+  border: 2px solid rgba(215, 178, 109, .36);
   background:
-    radial-gradient(circle at 86% 6%, rgba(37, 94, 63, .30), transparent 38%),
-    linear-gradient(145deg, rgba(255, 255, 255, .050), rgba(255, 255, 255, .018));
-  box-shadow: 0 22px 52px rgba(0, 0, 0, .24);
+    radial-gradient(circle at 86% 6%, rgba(37, 94, 63, .54), transparent 38%),
+    linear-gradient(145deg, rgba(255, 255, 255, .095), rgba(255, 255, 255, .038));
+  box-shadow: 0 36px 84px rgba(0, 0, 0, .42);
+  padding: 28px;
 }
 
 .reference-step-scripture blockquote {
@@ -2476,21 +2477,20 @@ body.episode-reading-active #episodeContent {
 }
 
 .reference-step {
-  margin-bottom: 34px !important;
+  margin-bottom: 56px !important;
 }
 
 .reference-dot {
-  width: 10px !important;
-  height: 10px !important;
-  left: -28px !important;
+  width: 18px !important;
+  height: 18px !important;
+  left: -32px !important;
+  box-shadow: 0 0 0 12px rgba(215, 178, 109, .18), 0 0 28px rgba(244, 216, 142, .82) !important;
 }
 
 .reference-step-conduct .reference-dot,
 .reference-step-tools .reference-dot {
   background: var(--conduct-green) !important;
-  box-shadow:
-    0 0 0 7px rgba(126, 168, 106, .10),
-    0 0 16px rgba(126, 168, 106, .46) !important;
+  box-shadow: 0 0 0 12px rgba(86, 146, 92, .22), 0 0 28px rgba(141, 187, 120, .72) !important;
 }
 
 .reference-step-label {
@@ -2548,17 +2548,20 @@ body.episode-reading-active #episodeContent {
 .reference-tool-card,
 .reference-challenge-card {
   border-radius: 22px !important;
+  border: 2px solid rgba(215, 178, 109, .36) !important;
+  box-shadow: 0 36px 84px rgba(0, 0, 0, .42) !important;
+  background: radial-gradient(circle at 86% 6%, rgba(37, 94, 63, .54), transparent 38%), linear-gradient(145deg, rgba(255, 255, 255, .095), rgba(255, 255, 255, .038)) !important;
 }
 
 .visual-trigger-panel,
 .conduct-showcase-card,
 .reference-tool-card,
 .reference-challenge-card {
-  padding: 22px !important;
+  padding: 28px !important;
 }
 
 .reference-step-body:not(.no-card) {
-  padding: 22px !important;
+  padding: 28px !important;
 }
 
 .visual-trigger-panel {
